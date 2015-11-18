@@ -1,0 +1,91 @@
+html {
+  overflow-y: scroll;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  color: lightgray;
+  background-color: #345E6C;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 100px;
+}
+h1,
+h2 {
+  color: white;
+}
+h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+a,
+a:hover, a:visited {
+  color: #D2A000;
+}
+select {
+  color: steelblue;
+}
+footer {
+  padding-top: 5px;
+  border-top: 1px solid gray;
+  font-size: 12px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background: black;
+  text-align: center;
+}
+.tooltip {
+  color: black;
+  position: absolute;
+  text-align: left;
+  width: 110px;
+  height: 70px;
+  padding: 5px;
+  font: 11px sans-serif;
+  background: lightsteelblue;
+  border: 2px solid gray;
+  border-radius: 5px;
+  pointer-events: none;
+}
+.xml pre {
+  height: 300px;
+  font-size: 9px;
+  overflow-y: scroll;
+}
+.instructions p,
+.instructions li {
+  font-style: italic;
+}
+.player {
+  padding: 10px 0;
+}
+.player input {
+  width: 70px;
+}
+.tooltip {
+  color: black;
+  position: absolute;
+  text-align: left;
+  width: 110px;
+  height: 70px;
+  padding: 5px;
+  font: 11px sans-serif;
+  background: lightsteelblue;
+  border: 2px solid gray;
+  border-radius: 5px;
+  pointer-events: none;
+}
+.key {
+  stroke-width: 1px;
+  transition: fill 250ms linear, stroke 250ms linear;
+  transition-delay: 150ms;
+}
+.key:hover {
+  transition-delay: 0;
+}
+.key--white { fill: #fff; stroke: #000; }
+.key--black { fill: #333; stroke: #000; }
+.key--white:hover { fill: cyan; stroke: #00999b; }
+.key--black:hover { fill: magenta; stroke: #910099; }

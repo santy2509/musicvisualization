@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pianogramApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pianogram Arcs</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body ng-controller="pianoCtrl as piano">
+  <div class="container">
+
+   
+   
+    <!-- main -->
+    <div class="main">
+      
+      <!-- music inputs/samples -->
+      <select ng-model="piano.sample" ng-change="piano.getSample()" ng-options="sample.name for sample in piano.samples"></select>
+      <div class="pull-right">
+        <input id="fileUpload" type="file" on-read-file="piano.getData($fileContent)" />
+      </div>
+      <br />
+
+      <!-- player -->
+      <div class="btn-group player">
+        <input type="number" class="btn btn-default btn-sm" ng-model="piano.measure.value" title="Go to measure" />
+        <a class="btn btn-default btn-sm" title="First Measure Bar" ng-click="piano.player.firstMeasure()"><i class="fa fa-fast-backward"></i></a>
+        <a class="btn btn-default btn-sm" title="Previous Measure Bar" ng-click="piano.player.prevMeasure()"><i class="fa fa-step-backward"></i></a>
+        <a class="btn btn-default btn-sm" title="Play" ng-click="piano.player.play()" ng-hide="piano.player.playing"><i class="fa fa-play"></i></a>
+        <a class="btn btn-default btn-sm" title="Pause" ng-click="piano.player.pause()" ng-show="piano.player.playing"><i class="fa fa-pause"></i></a>
+        <a class="btn btn-default btn-sm" title="Next Measure Bar" ng-click="piano.player.nextMeasure()"><i class="fa fa-step-forward"></i></a>
+        <a class="btn btn-default btn-sm" title="Last Measure Bar" ng-click="piano.player.lastMeasure()"><i class="fa fa-fast-forward"></i></a>
+        <p>(Max measure: {{ piano.measure.max }})</p>
+      </div>
+
+   <!-- pianogram -->
+      <pianogram-arcs data="piano.data"></pianogram-arcs>
+
+	
+  </div>
+</div>
+
+ 
+
+
+  <!-- scripts -->
+  <script src="http://code.angularjs.org/1.3.5/angular.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="app.js"></script>
+  <script src="pianogram.js"></script>
+  <script src="music.js"></script>
+
+
+  <script type="text/javascript">
+    // Hack to make this example display correctly in an iframe on bl.ocks.org
+    d3.select(self.frameElement).style("height", "1000px");
+  </script>
+</body>
+
+</html>
